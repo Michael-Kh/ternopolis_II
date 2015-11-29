@@ -6,6 +6,17 @@
 </p>
 
 <p>
+	<strong>Name:</strong>
+	<%= @order.first_name + " #{@order.last_name}" %>
+</p>
+
+<p>
+	<strong>Email:</strong>
+	<%= @order.email %>
+</p>
+
+
+<p>
   <strong>Arrival:</strong>
   <%= @order.arrival %>
 </p>
@@ -16,4 +27,4 @@
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Main page', root_path %>

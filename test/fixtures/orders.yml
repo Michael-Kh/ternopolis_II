@@ -4,8 +4,14 @@ one:
   arrival: 2016-11-24
   leaving: 2016-11-25
   room_id: 1
+  first_name: 'John'
+  last_name: 'Mombo'
+  email: 'wakamaka@example.com'
 
 two:
   arrival: 2016-12-24
   leaving: 2015-12-28
-  room_id: 1
+  room_id: 2
+  first_name: 'Tony'
+  last_name: 'Mumbo'
+  email: 'wakamakafoo@example.com'

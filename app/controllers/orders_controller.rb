@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:new, :create]
+  skip_before_action :authorize, only: [:new, :create, :edit, :show]
 
   def order_params
-    params.require(:order).permit(:room_id, :arrival, :leaving)
+    params.require(:order).permit(:room_id, :arrival, :leaving, :first_name, :last_name, :email)
   end
 
   # GET /orders
   # GET /orders.json
+
+  
   def index
     @orders = Order.all
   end
@@ -74,6 +76,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:room_id, :arrival, :leaving)
+      params.require(:order).permit(:room_id, :first_name, :last_name, :email, :arrival, :leaving)
     end
 end

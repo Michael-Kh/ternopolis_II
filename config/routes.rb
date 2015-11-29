@@ -24,7 +24,13 @@ Rails.application.routes.draw do
 
   get 'static_pages/seeroom'
 
+  get 'orders/new'
 
+  match '/contacts', to: 'static_pages#contacts', via: 'get'
+
+  match '/seeroom', to: 'static_pages#seeroom', via: 'get'
+
+  match '/reserve', to: 'orders#new', via: 'get'
 
   resources :orders
   resources :rooms

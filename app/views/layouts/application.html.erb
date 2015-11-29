@@ -25,23 +25,29 @@
 
 		<div class="collapse navbar-collapse" id="responsive-menu">
 			<ul class="nav navbar-nav">
-				<li><%=link_to "Бронювання", "#"%></li>
-				<li><a href="#">Point 2</a></li>
-				<li><a href="#">Point 3</a></li>
-				<li><a href="#">Point 4</a></li>
+				<li><%=link_to "Бронювання", '/reserve' %></li>
+				<li><%=link_to "Кімнати", '/seeroom'%></li>
+				<li><%=link_to "Контакти", '/contacts' %></li>
 			</ul>
+			<% if session[:user_id] %>
+			<div class="dropdown pull-right">
+ 			 <button class="btn btn-default dropdown-toggle kostyl" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   				    
+   				     <span class="glyphicon glyphicon-th-list"></span>
+  			</button>
+  			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+   				<li><%= link_to 'Orders', orders_path %></li>
+   				<li><%= link_to 'Rooms', rooms_path %></li>
+   				<li><%= link_to 'Users', users_path %></li>
+   				 <li role="separator" class="divider"></li>
+   				<li><%= button_to 'Logout', logout_path, method: :delete, form_class: 'logout' %></li>
+  				</ul>
+			</div>
+			<% end %>
+			
 		</div>
 	</div>
 </div>
-
-<% if session[:user_id] %>
-<ul>
-<li><%= link_to 'Orders', orders_path %></li>
-<li><%= link_to 'Rooms', rooms_path %></li>
-<li><%= link_to 'Users', users_path %></li>
-</ul>
-<%= button_to 'Logout', logout_path, method: :delete %>
-<% end %>
 
 <%= yield %>
 
